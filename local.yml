@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local #default is ssh but can use localconnection in this case
+  become: true #root privileges
+
+  tasks:
+  - name: install htop
+    package:
+      name: htop
+  
+
+
