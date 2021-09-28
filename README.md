@@ -1,1 +1,2 @@
-Repo for Ansible managed desktop config, fedora
+repo for automated workstation installations
+WIP
