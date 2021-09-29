@@ -14,3 +14,19 @@
         - zsh
         - tldr
         - screenfetch
+  
+  - name: get wallpaper
+    copy:
+      src: wallpaper-wide.jpg
+      dest: /usr/share/backgrounds/ansible-wall.jpg
+      owner: root
+      group: root
+  - name: set wallpaper
+    dconf:
+      key:
+  
+  - name: snap install test
+    community.general.snap:
+      name:
+        - helm
+        - kubectl
