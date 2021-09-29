@@ -56,4 +56,11 @@
       ssh_key_type: ed25519
       ssh_key_comment: test_ssh
       ssh_key_file: .ssh/testkey
+      shell: /usr/bin/zsh
 
+  - name: sweethome3d
+    package:
+      name:
+        - sweethome3d
+        - sweethome3d-furniture
+        - sweethome3d-furniture-editor 
