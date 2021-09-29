@@ -49,9 +49,8 @@
   - name: add user and manage groups, shell, ssh key and set secret password
     ansible.builtin.user:
       name: intra
-      password: secret
       comment: test user for ansible playbook
-      groups: kvm, virtualbox, docker
+      groups: kvm, docker, libvirt
       append: yes
       generate_ssh_key: yes
       ssh_key_type: ed25519
