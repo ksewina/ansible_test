@@ -22,11 +22,19 @@
       owner: root
       group: root
   - name: set wallpaper
+    become_user: ks
     dconf:
-      key:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/ansible-wall.jpg'"
   
-  - name: snap install test
-    community.general.snap:
-      name:
-        - helm
-        - kubectl
+  - name: set wallpaper position
+    become_user: ks
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
+
+  # - name: snap install test
+  #   community.general.snap:
+  #     name:
+  #       - helm
+  #       - kubectl
