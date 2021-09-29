@@ -9,6 +9,7 @@
     package:
       name: 
         - htop
+        - git
         - tmux
         - vim
         - zsh
@@ -68,10 +69,20 @@
     file:
       path: '{{ remote_home_dir }}/dotfiles2'
       state: directory
+      owner: ks
+      group: ks
       mode: '0755'
+
 
   - name: stow managed dotfiles clone
     ansible.builtin.git:
       repo: 'https://github.com/ksewina/dotfiles.git'
       dest: '{{ remote_home_dir }}/dotfiles2'
       clone: yes
+
+  - name: ansible pull cron job
+    cron:
+      name: ansible auto-provision
+      user: ks
+      minute: "*/10"
+      job: ansible-pull -o -U https://github.com/ksewina/ansible_test.git
