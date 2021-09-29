@@ -43,6 +43,7 @@
       name:
         - helm
         - kubectl
+      classic: yes
 
 
   - name: add user and manage groups, shell, ssh key and set secret password
