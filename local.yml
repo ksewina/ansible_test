@@ -66,12 +66,12 @@
         - sweethome3d-furniture-editor 
   - name: make dir for dotfiles
     file:
-      path: '{{ remote_home_dir }}/dotfiles'
+      path: '{{ remote_home_dir }}/dotfiles2'
       state: directory
       mode: '0755'
 
   - name: stow managed dotfiles clone
     ansible.builtin.git:
       repo: 'https://github.com/ksewina/dotfiles.git'
-      dest: '{{ remote_home_dir }}/dotfiles'
+      dest: '{{ remote_home_dir }}/dotfiles2'
       clone: yes
