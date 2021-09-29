@@ -4,6 +4,8 @@
   connection: local #default is ssh
   become: true #sudo rights
 
+  remote_home_dir: /home/ks
+
   tasks:
   - name: basic packages
     package:
@@ -64,3 +66,14 @@
         - sweethome3d
         - sweethome3d-furniture
         - sweethome3d-furniture-editor 
+  - name: make dir for dotfiles
+    file:
+      path: '{{ remote_home_dir }}/dotfiles'
+      state: directory
+      mode: '0755'
+
+  - name: stow managed dotfiles clone
+    ansible.builtin.git:
+      repo: 'https://github.com/ksewina/dotfiles.git'
+      dest: '{{ remote_home_dir }}/dotfiles'
+      clone: yes
