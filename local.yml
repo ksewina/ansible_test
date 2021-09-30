@@ -41,12 +41,12 @@
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
 
-  # - name: snap install test
-  #   community.general.snap:
-  #     name:
-  #       - helm
-  #       - kubectl
-  #     classic: yes
+  - name: snap install test
+    community.general.snap:
+      name:
+        - helm
+        - kubectl
+      classic: yes
 
 
   - name: add user and manage groups, shell, ssh key and set secret password
