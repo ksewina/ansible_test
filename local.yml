@@ -20,6 +20,8 @@
         - virtualbox 
         - virtualbox-qt 
         - virtualbox-dkms 
+        - fzf
+        - mpv
   
   - name: get wallpaper
     copy:
@@ -51,7 +53,7 @@
     ansible.builtin.user:
       name: intra
       comment: test user for ansible playbook
-      groups: kvm, docker, libvirt
+      groups: kvm, docker, libvirt, sudo
       append: yes
       generate_ssh_key: yes
       ssh_key_type: ed25519
@@ -86,3 +88,5 @@
       user: ks
       minute: "*/10"
       job: ansible-pull -o -U https://github.com/ksewina/ansible_test.git
+
+
