@@ -1,0 +1,63 @@
+---
+
+- name: Create Vagrant group
+  group:
+    name: vagrant
+    state: present
+
+- name: Setup {{ local_user }} user
+  user:
+    name: "{{ local_user }}"
+    home: /home/{{ local_user }}
+    groups: kvm, libvirt, docker, vagrant, sudo
+    append: yes
+    block:
+
+      generate_ssh_key: yes
+      ssh_key_type: ed25519
+      ssh_key_comment: test_ssh
+      ssh_key_file: .ssh/testkey
+      shell: /usr/bin/zsh
+
+    when: generate_ssh_key
+
+# - name: Allow wheel group to sudo without a password
+#   lineinfile:
+#     dest: /etc/sudoers
+#     state: present
+#     regexp: '^%wheel'
+#     line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+#     validate: visudo -cf %s
+#   when: local_user_passwordless_sudo
+
+- name: Create /home/{{ local_user }}/.kube directory
+  file:
+    path: /home/{{ local_user }}/.kube
+    state: directory
+    mode: 0750
+    owner: "{{ local_user }}"
+    group: "{{ local_user }}"
+  
+- name: Create /home/{{ local_user }}/media directory
+  file:
+    path: /home/{{ local_user }}/media
+    state: directory
+    mode: 0750
+    owner: "{{ local_user }}"
+    group: "{{ local_user }}"
+
+- name: Create /home/{{ local_user }}/learn directory
+  file:
+    path: /home/{{ local_user }}/learn
+    state: directory
+    mode: 0750
+    owner: "{{ local_user }}"
+    group: "{{ local_user }}"
+
+- name: Create /home/{{ local_user }}/dotfiles directory
+  file:
+    path: /home/{{ local_user }}/learn
+    state: directory
+    mode: 0750
+    owner: "{{ local_user }}"
+    group: "{{ local_user }}"

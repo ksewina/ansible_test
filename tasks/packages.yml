@@ -1,0 +1,76 @@
+---
+
+- name: Upgrade all packages
+  package:
+    name: "*"
+    state: latest # noqa 403 This is a workstation playbook and updating your software to the latest versions is a good idea
+
+- name: Install baseline packages
+  package:
+    name:
+    - android-tools #includes ADB
+    - ansible-lint
+    - asciidoc
+    - asciidoc-doc
+    - autoconf
+    - audacious
+    - awscli
+    - binwalk
+    - build-essential
+    - cmake
+    - collectl
+    - crun
+    - diodon #clipboard manager
+    - feh
+    - figlet
+    - ffmpeg
+    - glances
+    - git
+    - gnome-shell-extension-gpaste
+    - gnome-tweak-tool
+    - golang
+    - golang-godoc
+    - golang-gotype
+    - gotags
+    - gpaste
+    - htop
+    - httpie
+    - hub
+    - mpv
+    - inotify-tools
+    - intltool
+    - inxi
+    - iotop
+    - libvirt
+    - libvirt-sandbox
+    - ranger
+    - runc
+    - screenfetch
+    - setools-console
+    - smartmontools
+    - snapd
+    - socat
+    - spec2scl
+    - speedtest-cli
+    - spin-kickstarts
+    - thunderbird
+    - tldr
+    - tmux
+    - tpp
+    - vagrant
+    - vagrant-doc
+    - vagrant-libvirt
+    - vagrant-libvirt-doc
+    - vim
+    #vim-airline
+    #vim-airline-themes
+    - zsh
+    state: installed
+
+- name: Install extra fonts
+  package:
+    name:
+    - fonts-noto
+    - fonts-firacode
+    state: installed
+  when: install_extra_fonts

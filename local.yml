@@ -4,6 +4,8 @@
   connection: local #default is ssh
   become: true #sudo rights
 
+   #cat /etc/*release | grep DISTRIB_CODENAME | tr -d 'DISTRIB_CODENAME='
+
   tasks:
   - name: basic packages
     package:

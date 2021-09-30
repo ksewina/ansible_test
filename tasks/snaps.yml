@@ -1,0 +1,23 @@
+---
+block:
+
+- name: install snaps
+  snap:
+    name:
+      - helm
+      - kubectl
+      - fluxctl
+    classic: yes
+
+when: install_devops_toolkit
+
+block:
+
+- name: install snaps
+  snap:
+    name:
+    - spotify
+    - alacritty
+    - bitwarden
+    - code
+    - signal-desktop

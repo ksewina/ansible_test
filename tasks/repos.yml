@@ -1,0 +1,19 @@
+---
+# - block:
+
+#     - name: Check for Google Chrome repo
+#       stat: path=/etc/yum.repos.d/google-chrome.repo
+#       register: chrome_installed
+
+#     - name: Install Google Chrome repo
+#       dnf:
+#         name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
+#         state: present
+#       when: not chrome_installed.stat.exists
+
+#     - name: Enable Google Chrome repo
+#       command: dnf config-manager --set-enabled google-chrome
+#       args:
+#         warn: false
+
+#   when: install_chrome

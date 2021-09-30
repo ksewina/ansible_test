@@ -1,0 +1,71 @@
+---
+- name: Install Google Chrome
+  dnf:
+    name: google-chrome-stable
+    state: present
+  when: install_chrome
+
+- name: Install Google Talk
+  dnf:
+    name: google-talkplugin
+    state: present
+  when: install_googletalk
+
+- name: Install Spotify
+  dnf:
+    name: spotify-client
+    state: present
+  ignore_errors: yes
+  when: install_spotify
+
+- name: Install Sublime Text
+  dnf:
+    name: sublime-text
+    state: present
+  when: install_sublime_text
+
+- name: Install Slack
+  dnf:
+    name: slack
+    state: present
+  when: install_slack
+
+- name: Install VS Code
+  dnf:
+    name: code
+    state: present
+  when: install_vscode
+
+- name: Install Authy
+  snap:
+    name: authy
+    channel: beta
+  when: install_authy
+
+- name: Install Bitwarden and Bitwarden CLI
+  snap:
+    name:
+      - bitwarden
+      - bw
+    channel: beta
+  when: install_bitwarden
+
+- name: Install Slack
+  dnf:
+    name:
+      - slack
+    state: present
+
+- block:
+
+  - name: Check for Zoom
+    stat: path=/usr/bin/zoom
+    register: zoom_installed
+
+  - name: Install Zoom RPM
+    dnf:
+      name: 'https://zoom.us/client/latest/zoom_x86_64.rpm'
+      state: present
+    when: not zoom_installed.stat.exists
+
+  when: install_zoom

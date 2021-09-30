@@ -1,2 +1,2 @@
-repo for automated workstation installations
-WIP
+# repo for automated workstation installations
+* WIP

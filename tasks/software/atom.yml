@@ -1,0 +1,19 @@
+- block:
+
+  - name: Check for Atom
+    stat: path=/usr/bin/atom
+    register: atom_installed
+
+  - name: Download Atom deb package
+    get_url:
+      url: https://atom.io/download/deb
+      dest: /tmp/atom.deb
+    when: not atom_installed.stat.exists
+
+  - name: Install Atom deb package
+    package:
+      name: /tmp/atom.deb
+      state: present
+    when: not atom_installed.stat.exists
+
+  when: install_atom

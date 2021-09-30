@@ -1,0 +1,27 @@
+---
+
+# User
+local_user: ks
+local_user_email: 
+local_user_passwordless_sudo: false
+managed_dotfiles: true #https://github.com/ksewina/dotfiles
+generate_ssh_key: false
+
+# Services
+#enable_fail2ban: true 
+enable_libvirtd: true
+#enable_sshd: true
+#enable_vagrant_nfs: true
+
+# Extras
+install_extra_fonts: true
+install_packager: true
+
+# extending
+
+install_devops_toolkit: true
+
+
+
+#python3
+ansible_python_interpreter: /usr/bin/python3
