@@ -44,7 +44,7 @@
       value: "'zoom'"
 
   - name: snap install test
-    community.general.snap:
+    snap:
       name:
         - helm
         - kubectl
