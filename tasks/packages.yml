@@ -5,7 +5,7 @@
     name: "*"
     state: latest # noqa 403 This is a workstation playbook and updating your software to the latest versions is a good idea
 
-- name: Install baseline packages
+- name: Install base packages
   package:
     name:
     - android-tools #includes ADB

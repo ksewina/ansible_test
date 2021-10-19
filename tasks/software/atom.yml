@@ -1,8 +1,8 @@
 - block:
 
-  - name: Check for Atom
-    stat: path=/usr/bin/atom
-    register: atom_installed
+  # - name: Check for Atom
+  #   stat: path=/usr/bin/atom
+  #   register: atom_installed
 
   - name: Download Atom deb package
     get_url:
@@ -16,4 +16,4 @@
       state: present
     when: not atom_installed.stat.exists
 
-  when: install_atom
+  when: (ansible_facts['os_family'] == "Debian") and (install_atom == true)

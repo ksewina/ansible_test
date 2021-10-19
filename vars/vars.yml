@@ -1,26 +1,25 @@
 ---
-
 # User
 local_user: ks
 local_user_email: 
 local_user_passwordless_sudo: false
-managed_dotfiles: true #https://github.com/ksewina/dotfiles
-generate_ssh_key: false
+get_managed_dotfiles: true #https://github.com/ksewina/dotfiles
 
 # Services
-#enable_fail2ban: true 
+enable_fail2ban: false 
 enable_libvirtd: true
-#enable_sshd: true
-#enable_vagrant_nfs: true
+enable_sshd: true
+enable_vagrant_nfs: false
 
 # Extras
 install_extra_fonts: true
 install_packager: true
+use_snaps: true
 
 # extending
-
-install_devops_toolkit: true
-
+install_docker: true
+install_devops_toolbelt: true
+install_atom: false
 
 
 #python3

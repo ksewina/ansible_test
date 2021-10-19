@@ -1,7 +1,7 @@
 ---
-block:
+- block:
 
-- name: install snaps
+- name: install snaps with classic bound
   snap:
     name:
       - helm
@@ -9,9 +9,9 @@ block:
       - fluxctl
     classic: yes
 
-when: install_devops_toolkit
+  when: install_devops_toolbelt
 
-block:
+- block:
 
 - name: install snaps
   snap:
@@ -21,3 +21,6 @@ block:
     - bitwarden
     - code
     - signal-desktop
+    - jdownloader2
+    - mikrok8s
+  when: use_snaps

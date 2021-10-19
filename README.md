@@ -1,2 +1,3 @@
-# repo for automated workstation installations
+# automating workstation install
+## trying to keep it distro agnostic
 * WIP

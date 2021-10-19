@@ -1,0 +1,28 @@
+#the setup is kinda messy due to zsh > oh-my-zsh framework > p10k > config files
+#might not work with updates
+
+
+- name: install oh-my-zsh framwork from git
+  command:
+    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+- name: zsh-syntax-highlighting
+  command:
+    cmd: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+- name: zsh-autosuggest
+  command:
+    cmd: git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+- name: install p10k
+  command:
+    cmd: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+- name: change default shell
+  command: 
+    cmd: chsh -s $(which zsh)
+
+- name: remove configs for stow
+  command:
+    chdir: {{ remote_home_dir }}
+    cmd: rm .zshrc ; rm .zshrc.pre-oh-my-zsh ; rm .p10k.zsh ;

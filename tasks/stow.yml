@@ -1,0 +1,13 @@
+---
+#stow managed dotfiles from gitrepo
+
+- name: clone repo
+  git:
+    repo: 'https://github.com/ksewina/dotfiles.git'
+    dest: '{{ remote_home_dir }}/dotfiles'
+    clone: yes
+
+- name: symlink config files
+  command:
+    chdir: /home/{{ remote_home_dir }}/dotfiles
+    cmd: stow alacritty aliases gitconfig mpv p10k-zsh tmux vim xmodmap zsh
