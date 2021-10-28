@@ -39,4 +39,4 @@ block:
   #     state: present
   #   with_sequence: count={{ create_containers }}
 
-when: install_docker
+when: (ansible_facts['os_family'] == "Debian") and (install_docker == true)

@@ -65,12 +65,12 @@
     #vim-airline
     #vim-airline-themes
     - zsh
-    state: installed
+    state: present
 
 - name: Install extra fonts
   package:
     name:
     - fonts-noto
     - fonts-firacode
-    state: installed
+    state: present
   when: install_extra_fonts
