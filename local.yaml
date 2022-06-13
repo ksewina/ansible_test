@@ -7,5 +7,4 @@
 tasks:
 - name: install base package
   package:
-    name: git
-    
+    name: htop
