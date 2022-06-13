@@ -4,7 +4,7 @@
   become: true #sudo 
 
 
-tasks:
-- name: install base package
-  package:
-    name: htop
+  tasks:
+  - name: install base package
+    package:
+      name: tldr
