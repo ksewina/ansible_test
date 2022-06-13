@@ -7,4 +7,6 @@
   tasks:
   - name: install base package
     package:
-      name: tldr
+      name:
+        - tldr
+        - vagrant
